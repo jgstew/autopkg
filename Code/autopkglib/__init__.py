@@ -157,7 +157,7 @@ class Preferences:
             self.file_path = file_path
             return data
         except Exception:
-            if options.verbose > 0:
+            if AutoPackager.verbose > 0:
                 log_err(f"Could not read {file_path}")
             pass
         try:
@@ -167,7 +167,7 @@ class Preferences:
                 self.file_path = file_path
                 return data
         except Exception:
-            if options.verbose > 0:
+            if AutoPackager.verbose > 0:
                 log_err(f"Could not read {file_path}")
             pass
         return {}
