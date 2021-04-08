@@ -157,6 +157,8 @@ class Preferences:
             self.file_path = file_path
             return data
         except Exception:
+            if options.verbose > 0:
+                log_err(f"Could not read {file_path}")
             pass
         try:
             with open(file_path, "rb") as f:
@@ -165,6 +167,8 @@ class Preferences:
                 self.file_path = file_path
                 return data
         except Exception:
+            if options.verbose > 0:
+                log_err(f"Could not read {file_path}")
             pass
         return {}
 
