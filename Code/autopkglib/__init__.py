@@ -157,7 +157,7 @@ class Preferences:
             self.file_path = file_path
             return data
         except Exception:
-            log_err(f"Could not read {file_path} - expected if .json exists")
+            log_err(f"WARNING: Could not read {file_path} - expected if using .json config")
             pass
         try:
             with open(file_path, "rb") as f:
@@ -166,7 +166,7 @@ class Preferences:
                 self.file_path = file_path
                 return data
         except Exception:
-            log_err(f"Could not read {file_path} - not expected since .plist doesn't exist either")
+            log_err(f"WARNING: Could not read {file_path} - expected if using .plist config")
             pass
         return {}
 
