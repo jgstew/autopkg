@@ -157,8 +157,7 @@ class Preferences:
             self.file_path = file_path
             return data
         except Exception:
-            if AutoPackager.verbose > 0:
-                log_err(f"Could not read {file_path}")
+            log_err(f"Could not read {file_path} - expected if .json exists")
             pass
         try:
             with open(file_path, "rb") as f:
@@ -167,8 +166,7 @@ class Preferences:
                 self.file_path = file_path
                 return data
         except Exception:
-            if AutoPackager.verbose > 0:
-                log_err(f"Could not read {file_path}")
+            log_err(f"Could not read {file_path} - not expected since .plist doesn't exist either")
             pass
         return {}
 
