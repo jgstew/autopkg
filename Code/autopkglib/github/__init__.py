@@ -274,6 +274,9 @@ To save the token, paste it to the following prompt."""
         try:
             with open(temp_content) as f:
                 resp_data = json.load(f)
+        except UnicodeDecodeError:
+            with open(temp_content, "rb") as f:
+                resp_data = json.load(f)
         except json.JSONDecodeError:
             resp_data = None
 
